@@ -1,7 +1,8 @@
 import { createContext } from "react";
 import {QueryClient,useQuery,dehydrate} from 'react-query';
 interface initial{
-    LobbyQuery:any
+    LobbyQuery:any,
+    refetch:any
 }
 let initValue!:initial;
 export const ApiContext = createContext(initValue);
@@ -16,7 +17,7 @@ export function ApiProvider(props:any){
     if(LobbyQuery.isError){
        return  <div>...Error</div>
     }
-    return <ApiContext.Provider value={{LobbyQuery:LobbyQuery.data}}>{props.children}</ApiContext.Provider>
+    return <ApiContext.Provider value={{LobbyQuery:LobbyQuery.data,refetch:LobbyQuery.refetch}}>{props.children}</ApiContext.Provider>
 
 }
 

@@ -1,9 +1,9 @@
 import { NextPage } from 'next';
 import React,{useMemo} from 'react'
-import { useTable } from 'react-table'
+import { useFlexLayout, useTable } from 'react-table'
 import { lobbyElement } from 'types';
 const LobbyTable:NextPage<{element:lobbyElement}> = ({element}) => {
-    console.log(element)
+    
     const data = useMemo(() => [
         {
             col1:element.title,
@@ -25,16 +25,17 @@ const LobbyTable:NextPage<{element:lobbyElement}> = ({element}) => {
             accessor:'col3'
         }
     ],[]);
-    const tableInstance = useTable({columns,data})
+
+    const tableInstance = useTable({columns,data},useFlexLayout)
     const {getTableBodyProps,getTableProps,rows,prepareRow,headerGroups} = tableInstance;
   return (
-    <div className='px-[2rem]'>
-        <table {...getTableProps()}>
+    <div className='px-[2rem] w-full lg:py-[1rem]'>
+        <table className='w-full' {...getTableProps()}>
             <thead>
                 {headerGroups.map(headerGroup => 
                 <tr {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map(columns =>
-                        <th {...columns.getHeaderProps()}>
+                        <th className='border-[1px] border-white' {...columns.getHeaderProps()}>
                             {columns.render('Header')}
                         </th>
                     )}
@@ -42,13 +43,13 @@ const LobbyTable:NextPage<{element:lobbyElement}> = ({element}) => {
                 )}
             </thead>
             
-            <tbody {...getTableBodyProps()}>
+            <tbody className='' {...getTableBodyProps()}>
                 {rows.map(row => {
                     prepareRow(row);
                     return(
-                    <tr  {...row.getRowProps()}>
+                    <tr className='border-[1px] border-white'  {...row.getRowProps()}>
                         {row.cells.map(cell =>
-                        <td className='pt-[2rem] px-[2rem]' {...cell.getCellProps()}>
+                        <td className='pt-[2rem] px-[2rem] border-[1px] border-white w-[30%] ' {...cell.getCellProps()}>
                                 {cell.render('Cell')}
                         </td>
                         )}

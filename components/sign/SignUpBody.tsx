@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 // types 
-import { onSubmitData,dataContact,FormValues } from 'types';
+import {dataContact,FormValues } from 'types';
 import Link from 'next/link';
 import Router from 'next/router';
 
@@ -21,13 +21,12 @@ const registerContact = async (data:dataContact) =>{
         method: 'POST',
         body:JSON.stringify(data)
     });
-    console.log(response)
+   
     if(!response.ok){
         throw Error(response.statusText)
     }
     return await response.json();
 }
-
 
 const SignUpBody:NextPage<{contacts:any}> = ({contacts}):JSX.Element => {
     

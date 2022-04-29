@@ -12,13 +12,7 @@ const LobbyBody:NextPage = ():JSX.Element => {
   const {LobbyQuery,refetch} = useContext(ApiContext);
   const [activeAdd,setActiveAdd] = useState(false);
 
-  const cv =  {
-    title:'Movies',
-    description:'App made to discover nice movies in  a easy way.',
-    image:'https://res.cloudinary.com/zziustin145/image/upload/v1650964399/movies_ikl9ex.png',
-    link:'/movies/movies-page',
-    tehn:'Next.js,React Query,React Table, Tailwind'
-}
+
   return (
     <div className='min-h-[90vh] w-full text-white font-poppins flex flex-col'>
       <div className=" flex flex-col items-center w-full ">

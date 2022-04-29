@@ -28,6 +28,17 @@ interface FormValues extends Record<string,any>{
    link:string,
    tehn:string
 }
+export const addProject = async (data:lobbyElement) =>{
+    const response =   await fetch('/api/post_project',{
+      method:"POST",
+      body:JSON.stringify(data)
+    })
+    try{
+      return await response.json()
+    }catch{
+        throw Error(response.statusText)
+    }
+  }
 const LobbyAddProject:NextPage<{setActiveAdd:React.Dispatch<React.SetStateAction<boolean>>}> = ({setActiveAdd}) => {
     const {refetch} = useContext(ApiContext);
     const tableInstance = useForm<FormValues>({
@@ -36,25 +47,17 @@ const LobbyAddProject:NextPage<{setActiveAdd:React.Dispatch<React.SetStateAction
     
     const {register,handleSubmit} = tableInstance;
 
-    const addProject = async (data:lobbyElement) =>{
-        const response =   await fetch('/api/post_project',{
-          method:"POST",
-          body:JSON.stringify(data)
-        })
-        try{
-          return await response.json()
-        }catch{
-            throw Error(response.statusText)
-        }
+      function onSubmit2<T extends object>(objA:T):T{
+          return objA;
       }
-
+      const something = onSubmit2({cf:1})
       const {mutate} = useMutation(addProject,{
         onSuccess:(data:lobbyElement) =>{ console.log(data)
         refetch()
         }
       });
 
-      const onSubmit = (data:lobbyElement) =>{
+      const onSubmit = <T extends lobbyElement>(data:T) =>{
         mutate(data);
         setActiveAdd(false)
     }   
@@ -73,7 +76,7 @@ const LobbyAddProject:NextPage<{setActiveAdd:React.Dispatch<React.SetStateAction
                     <button className='bg-black w-[100px] py-[0.5rem] px-[1rem] rounded-[0.5rem]'>Submit</button>
                 </div>
             </form>
-       
+
     </motion.div>
   )
 }

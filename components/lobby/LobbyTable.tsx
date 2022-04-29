@@ -34,8 +34,8 @@ const LobbyTable:NextPage<{element:lobbyElement}> = ({element}) => {
             <thead>
                 {headerGroups.map(headerGroup => 
                 <tr {...headerGroup.getHeaderGroupProps()}>
-                    {headerGroup.headers.map(columns =>
-                        <th className='border-[1px] border-white' {...columns.getHeaderProps()}>
+                    {headerGroup.headers.map((columns,index) =>
+                        <th  className='border-[1px] border-white' {...columns.getHeaderProps()}>
                             {columns.render('Header')}
                         </th>
                     )}
@@ -48,8 +48,8 @@ const LobbyTable:NextPage<{element:lobbyElement}> = ({element}) => {
                     prepareRow(row);
                     return(
                     <tr className='border-[1px] border-white'  {...row.getRowProps()}>
-                        {row.cells.map(cell =>
-                        <td className='pt-[2rem] px-[2rem] border-[1px] border-white w-[30%] ' {...cell.getCellProps()}>
+                        {row.cells.map((cell,index) =>
+                        <td data-testid ={`title_table${index}`} className='pt-[2rem] px-[2rem] border-[1px] border-white w-[30%] ' {...cell.getCellProps()}>
                                 {cell.render('Cell')}
                         </td>
                         )}

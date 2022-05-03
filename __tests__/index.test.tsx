@@ -1,13 +1,11 @@
 import { getAllByTitle, render, screen, waitFor,within } from '@testing-library/react'
 import LobbyTable from '@/components/lobby/LobbyTable';
-
+import { lobbyElements } from '../data';
 
 jest.mock('api' ,() => ({
   __esModule:true,
   default:{
-      get: ()=>({
-          data:{id:1,title:"Movies"}
-      })
+      get: ()=> lobbyElements[0]
   }
 }));
 

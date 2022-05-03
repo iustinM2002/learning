@@ -9,6 +9,7 @@ export interface lobbyElement{
         link:string,
         tehn:string
     }
+    
 export interface dataContact{
     email:string,
     password?:string

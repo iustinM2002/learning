@@ -7,7 +7,7 @@ import { show,moveDiv } from "../util/Transitions";
 const First:NextPage = ():JSX.Element => {
   
   return (
-    <div className="w-full flex flex-wrap items-center justify-around min-h-[90vh] bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] lg:flex-col text-white font-poppins">
+    <div className="w-full flex flex-wrap items-center justify-around min-h-[90vh] bg-[#900C3E] lg:flex-col text-white font-poppins">
         <motion.div  variants={moveDiv} initial='hidden' animate="show" className="flex flex-col md:items-center md:text-center md:px-[2rem]">
             <h3 className="text-[2rem]">Library</h3>
             <p className="py-[2rem]">Discover best movies and games that you need to live a peaceful and better life.</p>

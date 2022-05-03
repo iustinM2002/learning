@@ -6,7 +6,7 @@ import PageNav from "../util/PageNav";
 import Footer from "../util/Footer";
 const DefaultPage:NextPage = ():JSX.Element => {
   return (
-    <div className="w-full  bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] text-white font-poppins overflow-x-hidden">
+    <div className="w-full bg-[#900C3E] text-white font-poppins overflow-x-hidden">
         <PageNav/>
         <First/>
         <Second/>

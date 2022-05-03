@@ -20,7 +20,6 @@ export const getServerSideProps   =  async () =>{
   const res = await fetch(upcomingGamesUrl());
   const upcoming = await res.json();
 
-
   return{
     props:{upcoming}
   }

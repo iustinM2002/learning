@@ -6,7 +6,7 @@ import { show,moveDiv } from '../util/Transitions';
 
 const Second = () => {
   return (
-    <motion.div className="w-full flex flex-wrap items-center justify-around min-h-[90vh] bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] lg:flex-col text-white font-poppins">
+    <motion.div className="w-full flex flex-wrap items-center justify-around min-h-[90vh] bg-[#900C3E] lg:flex-col text-white font-poppins">
         <motion.div  variants={show} whileInView="show" viewport={{ once: false }}  initial='hidden'  className="w-[450px] min-h-[100px] md:w-[200px] lg:order-2">
             <Image src={Organise} />
         </motion.div>

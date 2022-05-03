@@ -20,13 +20,3 @@ export function ApiProvider(props:any){
     return <ApiContext.Provider value={{LobbyQuery:LobbyQuery.data,refetch:LobbyQuery.refetch}}>{props.children}</ApiContext.Provider>
 
 }
-
-export async function getServerSideProps(){
-    const queryClient = new QueryClient();
-    await queryClient.prefetchQuery('lobby_data',lobbyDataFetch)
-    return{
-        props:{
-            dehydratedState: dehydrate(queryClient),
-        }
-    }
-}

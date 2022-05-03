@@ -14,7 +14,7 @@ const Lobby:NextPage = ():JSX.Element => {
         setLogged(sessionStorage.getItem('logged'))
   },[])
   return (
-    <div className='bg-gradient-to-r from-[#093028]  to-[#237A57]'>
+    <div className='bg-[#571845]'>
     { logged === 'true' ?
     <div className="text-white">
 
